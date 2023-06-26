@@ -3,7 +3,6 @@ import "./Home.css";
 import Product from "./Product";
 
 function Home() {
- 
   return (
     <>
       <div className="container contback mt-5 rounded ">

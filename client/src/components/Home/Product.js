@@ -5,6 +5,8 @@ import { SetLoader } from "../../redux/loaderSlice";
 import { GetProducts } from "../../apicalls/products";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import Filters from "./Category";
+import Divider from "../../MainComponents/Divider";
 
 function Product() {
   const [showFilters, setShowFilters] = React.useState(true);
@@ -46,41 +48,55 @@ function Product() {
 
   return (
     <section id="product">
-      <div className="container my-4 p-3">
-        <h1 className="text-danger">Products</h1>
-        <div className="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-5 g-3">
-          {products.map((product) => (
-            <div className="col">
+      <div className="  gap-5">
+        {showFilters && (
+          <Filters
+            showFilters={showFilters}
+            setShowFilters={setShowFilters}
+            filters={filters}
+            setFilters={setFilters}
+          />
+        )}
+        <div className="flex flex-row gap-5 w-full">
+          <div className="flex gap-5 items-center">
+            {!showFilters && (
+              <i
+                className="ri-equalizer-line text-xl cursor-pointer"
+                onClick={() => setShowFilters(!showFilters)}
+              ></i>
+            )}
+          </div>
+          <div
+            className={`grid gap-5 ${
+              showFilters ? "grid-cols-4" : "grid-cols-5"
+            }`}
+          >
+            {products.map((product) => (
               <div
-                className="card card-shadows"
+                className="border border-gray-400 rounded border-solid  gap-2 cursor-pointer"
                 key={product._id}
                 onClick={() => navigate(`/product/${product._id}`)}
               >
                 <img
                   src={product.images[0]}
-                  style={{ height: "10rem" }}
-                  className="card-img-top"
-                  alt=""
+                  alt="product"
+                  className="w-full h-40 p-3 rounded-md"
                 />
+                <Divider />
+                <div className="px-3 flex flex-col gap-1">
+                  <h2 className="font-semibold pb-2">{product.name}</h2>
 
-                <div className="label-top shadow-sm">
-                  <a className="text-white" href="/">
-                    {product.category}
-                  </a>
-                </div>
+                  <h4 className="font-normal pb-1">
+                    Condition: {product.condition}
+                  </h4>
 
-                <h2>{product.name}</h2>
-
-                <p className="fs-5">{product.condition}</p>
-
-                <div className="clearfix mb-2 ms-2">
-                  <span className="float-start badge rounded-pill bg-success">
-                    ₹ {product.price}
-                  </span>
+                  <h3 className="text-green-900 font-normal pb-2">
+                    ₹. {product.price}
+                  </h3>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
