@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Filters from "./Category";
 import Divider from "../../MainComponents/Divider";
+import Banner from "./Banner";
 
 function Product() {
   const [showFilters, setShowFilters] = React.useState(true);
@@ -36,11 +37,14 @@ function Product() {
     }
   };
 
-  // if (user.role === "admin") {
-  //   navigate("/admin");
-  // } else {
-  //   navigate("/");
-  // }
+  // Uncomment the following block if you want to navigate based on the user's role
+  // useEffect(() => {
+  //   if (user.role === "admin") {
+  //     navigate("/admin");
+  //   } else {
+  //     navigate("/");
+  //   }
+  // }, [user.role, navigate]);
 
   useEffect(() => {
     getData();
@@ -48,7 +52,7 @@ function Product() {
 
   return (
     <section id="product">
-      <div className="  gap-5">
+      <div className="gap-5">
         {showFilters && (
           <Filters
             showFilters={showFilters}
@@ -70,33 +74,43 @@ function Product() {
             className={`grid gap-5 ${
               showFilters ? "grid-cols-4" : "grid-cols-5"
             }`}
-          >
-            {products.map((product) => (
+          ></div>
+        </div>
+      </div>
+      <Banner />
+      <div className="container my-4 p-3">
+        <div className="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-5 g-3">
+          {products.map((product) => (
+            <div className="col" key={product._id}>
               <div
-                className="border border-gray-400 rounded border-solid  gap-2 cursor-pointer"
-                key={product._id}
+                className="card card-shadows"
                 onClick={() => navigate(`/product/${product._id}`)}
               >
                 <img
                   src={product.images[0]}
-                  alt="product"
-                  className="w-full h-40 p-3 rounded-md"
+                  style={{ height: "10rem" }}
+                  className="card-img-top"
+                  alt=""
                 />
-                <Divider />
-                <div className="px-3 flex flex-col gap-1">
-                  <h2 className="font-semibold pb-2">{product.name}</h2>
 
-                  <h4 className="font-normal pb-1">
-                    Condition: {product.condition}
-                  </h4>
+                <div className="label-top shadow-sm">
+                  <a className="text-white" href="/">
+                    {product.category}
+                  </a>
+                </div>
 
-                  <h3 className="text-green-900 font-normal pb-2">
-                    ₹. {product.price}
-                  </h3>
+                <h3 className="ms-1">{product.name}</h3>
+
+                <p className="ms-1">{product.condition}</p>
+
+                <div className="clearfix mb-2 ms-2">
+                  <span className="float-start badge rounded-pill bg-success">
+                    ₹ {product.price}
+                  </span>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
