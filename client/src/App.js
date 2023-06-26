@@ -7,18 +7,17 @@ import Signup from "./components/Auth/Signup";
 import Login from "./components/Auth/Login";
 import Home from "./components/Home/Home";
 import ProductInfo from "./components/Home/ProductInfo";
- 
+import Header from "./components/Partials/Header";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        <Header />
         <Routes>
-          <Route path="/" element=<Home /> />
+          <Route path="/" element={<Home />} />
           <Route path="/product/:id" element={<ProductInfo />} />
-
           <Route path="/login" element={<Login />} />
-
           <Route path="/register" element={<Signup />} />
         </Routes>
       </BrowserRouter>

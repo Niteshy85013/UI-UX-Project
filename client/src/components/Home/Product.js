@@ -51,7 +51,7 @@ function Product() {
   }, [filters]);
 
   return (
-    <section id="product">
+    <section className="product ">
       <div className="gap-5">
         {showFilters && (
           <Filters
@@ -61,7 +61,7 @@ function Product() {
             setFilters={setFilters}
           />
         )}
-        <div className="flex flex-row gap-5 w-full">
+        <div className="flex flex-col gap-5  sticky top-0">
           <div className="flex gap-5 items-center">
             {!showFilters && (
               <i
