@@ -55,16 +55,16 @@ function ProductInfo() {
   }
 
   return (
-    <div>
-      <div className="grid grid-cols-2 gap-5">
+    <div className="container mt-5">
+      <div className="row">
         {/* Image Section */}
-        <div className="flex flex-col gap-2">
+        <div className="col-md-6">
           <img
             src={product.images[selectedImageIndex]}
             alt=""
-            className="w-full h-96 object-cover rounded-md"
+            className="w-full h-80 rounded"
           />
-          <div className="flex gap-5">
+          <div className="flex gap-3 mt-2">
             {product.images.map((image, index) => (
               <img
                 key={index}
@@ -79,29 +79,37 @@ function ProductInfo() {
               />
             ))}
           </div>
-          {/* Product Add time section */}
           <Divider />
-          <div className="flex flex-col">
-            <h3 className="text-gray-600">Added On</h3>
-            <span className="text-gray-600">
-              {moment(product.createdAt).format("MMM D, YYYY hh:mm A")}
-            </span>
+
+          {/* Seller Details */}
+          <div className="container border border-dark rounded mb-5">
+            <h3 className=" flex font-bold text-red-500 mt-1">Seller Details</h3>
+            <div className="flex justify-between mt-2">
+              <span>Full Name</span>
+              <span className="uppercase">{product.seller.name}</span>
+            </div>
+            <div className="flex justify-between mt-2">
+              <span>Email</span>
+              <span>{product.seller.email}</span>
+            </div>
+            <div className="flex justify-between mt-2 mb-2">
+              <span>Contact</span>
+              <span>{product.seller.phone}</span>
+            </div>
           </div>
         </div>
 
-        {/* product Details */}
-        <div className="flex flex-col gap-2">
+        {/* All product Details */}
+        <div className="col-md-6">
           <div>
-            <h1 className="text-2xl font-semibold text-orange-900 pb-3">
+            <h1 className="flex text-2xl font-semibold text-orange-900 pb-3">
               {product.name}
             </h1>
-            <span>{product.description}</span>
+            <span className="flex">{product.description}</span>
           </div>
           <Divider />
-
-          {/* Product All Details */}
           <div className="flex flex-col">
-            <h1 className="text-2xl font-semibold text-orange-900 pb-1">
+            <h1 className="flex text-2xl font-semibold text-orange-900 pb-1">
               Product Details
             </h1>
             <div className="flex justify-between mt-2">
@@ -138,28 +146,17 @@ function ProductInfo() {
               <span>Negotiable</span>
               <span>{product.negotiable ? "Yes" : "No"}</span>
             </div>
+            {/* Product Add time section */}
+          <div className="flex justify-between mt-2">
+            <span> Added On</span>
+            <span className="text-gray-600">
+              {moment(product.createdAt).format("MMM D, YYYY ")}
+            </span>
+          </div>
           </div>
           <Divider />
 
-          {/* Seller Details */}
-          <div className="flex flex-col">
-            <h1 className="text-2xl font-semibold text-orange-900 pb-3">
-              Seller Details
-            </h1>
-            <div className="flex justify-between mt-2">
-              <span>Full Name</span>
-              <span className="uppercase">{product.seller.name}</span>
-            </div>
-            <div className="flex justify-between mt-2">
-              <span>Email</span>
-              <span>{product.seller.email}</span>
-            </div>
-            <div className="flex justify-between mt-2">
-              <span>Contact</span>
-              <span>{product.seller.phone}</span>
-            </div>
-          </div>
-          <Divider />
+           
           <div className="flex flex-col mt-3 mb-2">
             <div className="flex justify-between">
               <h1 className="text-2xl font-semibold text-orange-900">Bids</h1>

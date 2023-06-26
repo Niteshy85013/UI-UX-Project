@@ -9,7 +9,21 @@ import store from "./redux/store";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
-    <ConfigProvider>
+    <ConfigProvider
+      theme={{
+        components: {
+          Button: {
+            colorPrimary: "#405138",
+            colorPrimaryHover: "#405138",
+            borderRadius: "0px",
+          },
+        },
+        token: {
+          borderRadius: "2px",
+          colorPrimary: "#405138",
+        },
+      }}
+    >
       <App />
     </ConfigProvider>
   </Provider>
