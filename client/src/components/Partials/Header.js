@@ -10,13 +10,18 @@ function Header() {
 
   return (
     <>
-      <nav className="p-4 bg-gray-600 text-gray-200 w-full sticky  top-0 shadow-md">
+      <nav className="p-4 bg-gray-600 text-gray-200 w-full h-28 sticky  top-0 shadow-md">
         <div className="flex justify-between items-center">
           <div className="flex items-center pl-8">
-            <i className="text-2xl fas fa-campground"></i>
-            <h1 className="font-serif tracking-wide font-bold text-xl pl-4">
-              MarketHub
-            </h1>
+            <div className="pr-8 fst-italic">
+              <a
+                href="/"
+                className="transition duration-300 fs-1 text-yellow-500 "
+                style={{ textDecoration: "none" }}
+              >
+                MarketHub
+              </a>
+            </div>
           </div>
 
           {/* MOBILE NAV ICON */}
@@ -24,66 +29,65 @@ function Header() {
             <button
               aria-label="navigation"
               type="button"
-              className="md:hidden text-gray-200 transition duration-300 focus:outline-none focus:text-white hover:text-white"
+              className="md:hidden text-black-500 transition duration-300 focus:outline-none focus:text-black hover:text-red"
               onClick={toggleMobileMenu}
             >
-              <i className="fas fa-bars text-3xl" id="bars"></i>{" "}
+              <i className="fas fa-bars text-3xl text-black-200" id="bars"></i>{" "}
             </button>
           </div>
 
           {/* NAVIGATION - LARGE SCREENS */}
           <div className="hidden md:flex">
             <ul className="hidden md:flex">
-              <li className="text-lg pr-8">
+              <div className="text-lg pr-8">
                 <a
                   href="/"
-                  className="transition duration-300    hover:text-yellow-500"
+                  className="transition duration-300 text-gray-200   hover:text-yellow-500"
                   style={{ textDecoration: "none" }}
                 >
                   Home
                 </a>
-              </li>
-              <li className="text-lg pr-8">
+              </div>
+              <div className="text-lg pr-8">
                 <a
                   href="/"
-                  className="transition duration-300      hover:text-yellow-500"
+                  className="transition duration-300 ms-5  text-gray-200   hover:text-yellow-500"
                   style={{ textDecoration: "none" }}
                 >
                   Best Selling
                 </a>
-              </li>
-              <li className="text-lg pr-8">
+              </div>
+              <div className="text-lg pr-8">
                 <a
                   href="/"
-                  className="transition duration-300    hover:text-yellow-500"
+                  className="transition duration-300 ms-5 text-gray-200  hover:text-yellow-500"
                   style={{ textDecoration: "none" }}
                 >
                   Contact
                 </a>
-              </li>
+              </div>
             </ul>
           </div>
 
-          <div className="hidden md:flex">
-            <a href="/">
-              <button
-                class="btn2  px-10  relative border border-black uppercase font-semibold tracking-wider leading-none overflow-hidden hover:text-teal-600 rounded"
-                type="button"
-              >
-                <span class="absolute inset-0 bg-white"></span>
-                <span class="absolute inset-0 flex justify-center items-center font-bold">
-                  Sell Product
-                </span>
-                Sell Product
-              </button>
+          <div className=" md:flex">
+            <a
+              href="/"
+              class="relative inline-flex items-center justify-center p-4 px-5 py-3 overflow-hidden font-medium text-indigo-600 transition duration-300 ease-out rounded-full shadow-xl group hover:ring-1 hover:ring-purple-500"
+              style={{ textDecoration: "none" }}
+            >
+              <span class="absolute inset-0 w-full h-full bg-gradient-to-br from-blue-600 via-purple-600 to-pink-700"></span>
+              <span class="absolute bottom-0 right-0 block w-64 h-64 mb-32 mr-4 transition duration-500 origin-bottom-left transform rotate-45 translate-x-24 bg-pink-500 rounded-full opacity-30 group-hover:rotate-90 ease"></span>
+              <span class="relative text-white">Sell Product</span>
             </a>
+
             <a href="/">
-              <button class="bg-transparent hover:bg-green-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+              <button class=" ms-2 bg-black text-white font-semibold  py-2 px-4 border   rounded">
                 Login
               </button>
             </a>
+
             <a href="/">
-              <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+              <button class=" ms-2 bg-blue-700 text-white font-semibold  py-2 px-4 border   rounded">
                 Signup
               </button>
             </a>
