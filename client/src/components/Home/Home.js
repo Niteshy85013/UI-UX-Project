@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Home.css";
 import Product from "./Product";
-const Home = () => {
+
+function Home() {
+ 
   return (
     <>
       <div className="container contback mt-5 rounded ">
@@ -24,6 +26,6 @@ const Home = () => {
       <Product />
     </>
   );
-};
+}
 
 export default Home;
