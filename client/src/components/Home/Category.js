@@ -16,7 +16,7 @@ const categories = [
   },
   {
     name: "Real Estate",
-    value: "realestate",
+    value: "realstate",
   },
   {
     name: "Furnishing",

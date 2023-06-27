@@ -10,10 +10,10 @@ function Header() {
 
   return (
     <>
-      <nav className="p-4 bg-gray-600 text-gray-200 w-full h-28 sticky  top-0 shadow-md">
+      <nav className="p-4 bg-gray-600 text-gray-200 w-full  sticky  top-0 shadow-md">
         <div className="flex justify-between items-center">
           <div className="flex items-center pl-8">
-            <div className="pr-8 fst-italic">
+            <div className=" fst-italic">
               <a
                 href="/"
                 className="transition duration-300 fs-1 text-yellow-500 "
@@ -70,14 +70,13 @@ function Header() {
           </div>
 
           <div className=" md:flex">
-            <a
-              href="/"
-              class="relative inline-flex items-center justify-center p-4 px-5 py-3 overflow-hidden font-medium text-indigo-600 transition duration-300 ease-out rounded-full shadow-xl group hover:ring-1 hover:ring-purple-500"
-              style={{ textDecoration: "none" }}
-            >
-              <span class="absolute inset-0 w-full h-full bg-gradient-to-br from-blue-600 via-purple-600 to-pink-700"></span>
-              <span class="absolute bottom-0 right-0 block w-64 h-64 mb-32 mr-4 transition duration-500 origin-bottom-left transform rotate-45 translate-x-24 bg-pink-500 rounded-full opacity-30 group-hover:rotate-90 ease"></span>
-              <span class="relative text-white">Sell Product</span>
+            <a href="/">
+              <button
+                type="button"
+                class="text-white fs-5 bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+              >
+                Sell Product
+              </button>
             </a>
 
             <a href="/">
