@@ -99,9 +99,9 @@ function Product() {
                   </a>
                 </div>
 
-                <h3 className="ms-1">{product.name}</h3>
+                <h3 className="flex ms-1">{product.name}</h3>
 
-                <p className="ms-1">{product.condition}</p>
+                <p className=" flex ms-1">{product.condition}</p>
 
                 <div className="clearfix mb-2 ms-2">
                   <span className="float-start badge rounded-pill bg-success">

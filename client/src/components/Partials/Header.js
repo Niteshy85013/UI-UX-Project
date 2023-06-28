@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import "./header.css";
+import { useSelector } from "react-redux";
 
 function Header() {
+  const { user } = useSelector((state) => state.users);
   const [mobileMenuVisible, setMobileMenuVisible] = useState(false);
 
   const toggleMobileMenu = () => {
@@ -50,7 +52,7 @@ function Header() {
               </div>
               <div className="text-lg pr-8">
                 <a
-                  href="/"
+                  href="/bestSelling"
                   className="transition duration-300 ms-5  text-gray-200   hover:text-yellow-500"
                   style={{ textDecoration: "none" }}
                 >
@@ -70,7 +72,7 @@ function Header() {
           </div>
 
           <div className=" md:flex">
-            <a href="/">
+            <a href="/profile">
               <button
                 type="button"
                 class="text-white fs-5 bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
@@ -79,13 +81,13 @@ function Header() {
               </button>
             </a>
 
-            <a href="/">
+            <a href="/login">
               <button class=" ms-2 bg-black text-white font-semibold  py-2 px-4 border   rounded">
                 Login
               </button>
             </a>
 
-            <a href="/">
+            <a href="/register">
               <button class=" ms-2 bg-blue-700 text-white font-semibold  py-2 px-4 border   rounded">
                 Signup
               </button>
@@ -108,7 +110,7 @@ function Header() {
               Home
             </a>
             <a
-              href="/"
+              href="/bestSelling"
               className=" text-gray-200 cursor-pointer mt-1 py-3 transition duration-300    hover:text-yellow-500"
             >
               Best Selling

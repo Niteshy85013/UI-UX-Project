@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { GetCurrentUser } from "../apicalls/users";
 import { useDispatch, useSelector } from "react-redux";
 import { SetLoader } from "../redux/loaderSlice";
-import { SetUser } from "../redux/usersSlice";
-import "./Header.css";
+import { SetUser } from "../redux/userSlice";
+
 // import Notifications from "./Notifications";
 // import { GetAllNotifications } from "../apicalls/notifications";
 
@@ -77,42 +77,7 @@ function ProtectedPage({ children }) {
 
   return (
     <div>
-      <div className="flex justify-between items-center bg p-5">
-        <h1
-          className="text-2xl text-black cursor-pointer"
-          onClick={() => {
-            navigate("/");
-          }}
-        >
-          MarketHub
-        </h1>
-
-        <div className="bg-white py-2 px-5 rounded flex gap-1 items-center">
-          <span
-            className="underline cursor-pointer uppercase"
-            onClick={handleProfileClick}
-          >
-            {user.name}
-          </span>
-
-          {/* Notification work */}
-          {/* <Badge
-            count={
-              notifications.filter((notification) => !notification.read).length
-            }
-            onClick={() => setShowNotifications(true)}
-            className="cursor-pointer"
-          >
-            <Avatar
-              shape="circle"
-              icon={<i className="ri-notification-3-line"></i>}
-            />
-          </Badge> */}
-          <i className="ri-logout-box-r-line ml-10" onClick={handleLogout}></i>
-        </div>
-      </div>
-
-      <div className="p-5">{children}</div>
+      <div>{children}</div>
 
       {/* <Notifications
         notifications={notifications}

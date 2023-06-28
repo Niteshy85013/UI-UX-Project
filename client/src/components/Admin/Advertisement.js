@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
 import { Button, message, Table } from "antd";
-import ProductsForm from "./ProductsForm";
-import { useDispatch, useSelector } from "react-redux";
-import { DeleteProduct, GetProducts } from "../../../apicalls/products";
-import { SetLoader } from "../../../redux/loaderSlice";
-import moment from "moment";
-import Bids from "./Bids";
 
-function Products() {
-  const [showBids, setShowBids] = React.useState(false);
+import { useDispatch, useSelector } from "react-redux";
+
+import moment from "moment";
+import { SetLoader } from "../../redux/loaderSlice";
+import { DeleteProduct, GetProducts } from "../../apicalls/products";
+import ProductsForm from "./AdvertisementForm";
+
+function Advertisement() {
   // const [bids, SetBids] = React.useState([]);
   const [selectedProduct, setSelectedProduct] = React.useState(null);
   const [products, setProducts] = React.useState([]);
@@ -142,15 +142,8 @@ function Products() {
           getData={getData} // Pass the getData function
         />
       )}
-      {showBids && (
-        <Bids
-          showBidsModal={showBids}
-          setShowBidsModal={setShowBids}
-          selectedProduct={selectedProduct}
-        />
-      )}
     </div>
   );
 }
 
-export default Products;
+export default Advertisement;

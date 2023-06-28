@@ -5,6 +5,7 @@ import Users from "./Users";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import AdminDashboard from "./adminDashboard";
+import Advertisement from "./Advertisement";
 
 function Admin() {
   const navigate = useNavigate();
@@ -17,7 +18,7 @@ function Admin() {
   }, []);
 
   return (
-    <div>
+    <div className="container">
       <h3 className="text-center text-success">Welcome to Admin Dashboard</h3>
       <Tabs>
         <Tabs.TabPane tab="Products" key="1">
@@ -28,6 +29,9 @@ function Admin() {
         </Tabs.TabPane>
         <Tabs.TabPane tab="Users" key="3">
           <Users />
+        </Tabs.TabPane>
+        <Tabs.TabPane tab="Advertisement" key="4">
+          <Advertisement />
         </Tabs.TabPane>
       </Tabs>
     </div>

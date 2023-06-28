@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { SetLoader } from "../../redux/loaderSlice";
-import Divider from "../../components/Divider";
+import Divider from "../../MainComponents/Divider";
 import { message } from "antd";
 import { GetProducts } from "../../apicalls/products";
 import { useNavigate } from "react-router-dom";

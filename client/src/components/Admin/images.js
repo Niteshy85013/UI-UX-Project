@@ -1,17 +1,20 @@
 import { Button, Upload, message } from "antd";
 import React from "react";
 import { useDispatch } from "react-redux";
-import { SetLoader } from "../../../redux/loaderSlice";
-import { EditProduct, UploadProductImage } from "../../../apicalls/products";
+import { SetLoader } from "../../redux/loaderSlice";
+import {
+  EditAdvertisement,
+  UploadAdvertisementImage,
+} from "../../apicalls/advertisement";
 
 function Images({
-  selectedProduct,
-  setSelectedProduct,
-  setShowProductForm,
+  selectedAdvertisement,
+  setSelectedAdvertisement,
+  setShowAdvertisementForm,
   getData,
 }) {
   const [showPreview, setShowPreview] = React.useState(true);
-  const [images, setImages] = React.useState(selectedProduct.images);
+  const [images, setImages] = React.useState(selectedAdvertisement.images);
   const [file = null, setFile] = React.useState(null);
   const dispatch = useDispatch();
 
@@ -20,8 +23,14 @@ function Images({
   const deleteImage = async (image) => {
     try {
       const updatedImagesArray = images.filter((img) => img !== image);
-      const updatedProduct = { ...selectedProduct, images: updatedImagesArray };
-      const response = await EditProduct(selectedProduct._id, updatedProduct);
+      const updatedAdvertisement = {
+        ...selectedAdvertisement,
+        images: updatedImagesArray,
+      };
+      const response = await EditAdvertisement(
+        selectedAdvertisement._id,
+        updatedAdvertisement
+      );
 
       if (response.success) {
         message.success(response.message);
@@ -46,8 +55,8 @@ function Images({
       // Upload Images to cloudinary
       const formData = new FormData();
       formData.append("file", file);
-      formData.append("productId", selectedProduct._id);
-      const response = await UploadProductImage(formData);
+      formData.append("adsId", selectedAdvertisement._id);
+      const response = await UploadAdvertisementImage(formData);
       dispatch(SetLoader(false));
       if (response.success) {
         message.success(response.message);
@@ -72,7 +81,7 @@ function Images({
             <div className="flex gap-2 border border-solid border-gray-500 rounded p-2 items-end">
               <img className="h-20 w-20 object-cover" src={image} alt="" />
               <i
-                className="bi bi-archive-fill cursor-pointer"
+                className="ri-delete-bin-line"
                 onClick={() => deleteImage(image)}
               ></i>
             </div>
@@ -95,7 +104,7 @@ function Images({
         <Button
           type="primary"
           onClick={() => {
-            setShowProductForm(false);
+            setShowAdvertisementForm(false);
           }}
         >
           Cancel

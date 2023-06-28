@@ -36,11 +36,11 @@ function Login() {
     }
   };
 
-  useEffect(() => {
-    if (localStorage.getItem("token")) {
-      navigate("/");
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (localStorage.getItem("token")) {
+  //     navigate("/");
+  //   }
+  // }, []);
 
   return (
     <div className="h-screen bg-dark flex justify-center items-center">

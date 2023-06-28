@@ -2,21 +2,16 @@ import React from "react";
 import { Tabs } from "antd";
 import Products from "./Products";
 
-import AllBids from "./Products/AllBids";
 import UserBids from "./UserBids";
 import { useSelector } from "react-redux";
 
 function Profile() {
   const { user } = useSelector((state) => state.users);
   return (
-    <div>
+    <div className="container">
       <Tabs defaultActiveKey="1">
         <Tabs.TabPane tab="Products" key="1">
           <Products />
-        </Tabs.TabPane>
-
-        <Tabs.TabPane tab="Product Bids" key="2">
-          <AllBids />
         </Tabs.TabPane>
 
         <Tabs.TabPane tab="My Bids" key="3">
@@ -29,8 +24,11 @@ function Profile() {
                 <h1>
                   Hi, <span className="text-danger">{user.name}</span>
                 </h1>
-                 
-                <h3 className="mt-2 text-success mb-2"> Here are your Profile details... </h3>
+
+                <h3 className="mt-2 text-success mb-2">
+                  {" "}
+                  Here are your Profile details...{" "}
+                </h3>
                 <h4>Email: {user.email}</h4>
                 <h4>Address: {user.address}</h4>
                 <h4>Phone: {user.phone}</h4>

@@ -1,10 +1,12 @@
 import { Col, Modal, Tabs, Row, Input, Select, message, Form } from "antd";
 import React, { useEffect, useRef } from "react";
 import TextArea from "antd/es/input/TextArea";
-import { AddProduct, EditProduct } from "../../../apicalls/products";
+
 import { useDispatch, useSelector } from "react-redux";
-import { SetLoader } from "../../../redux/loaderSlice";
-import Images from "./images";
+
+import Images from "../Profile/Products/images";
+import { AddProduct, EditProduct } from "../../apicalls/products";
+import { SetLoader } from "../../redux/loaderSlice";
 
 const additionalThings = [
   {

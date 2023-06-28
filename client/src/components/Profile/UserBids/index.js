@@ -1,24 +1,20 @@
 import React, { useEffect } from "react";
-import { Modal, Table, message } from "antd";
-import { useDispatch } from "react-redux";
+import { Table, message } from "antd";
+import { useDispatch, useSelector } from "react-redux";
 import { SetLoader } from "../../../redux/loaderSlice";
 import { GetAllBids } from "../../../apicalls/products"; // Import the getAllBids function
 import moment from "moment";
-import Divider from "../../../MainComponents/Divider";
 
-function Bids({ showBidsModal, setShowBidsModal, selectedProduct }) {
+function UserBids() {
   const [bidsData, setBidsData] = React.useState([]);
+  const { user } = useSelector((state) => state.users);
   const dispatch = useDispatch(); // Declare the dispatch function
-
-  const handleCancel = () => {
-    setShowBidsModal(false);
-  };
 
   // Fetching Bids Data
   const getData = async () => {
     try {
       dispatch(SetLoader(true));
-      const response = await GetAllBids({ product: selectedProduct._id });
+      const response = await GetAllBids({ buyer: user._id });
       dispatch(SetLoader(false));
       if (response.success) {
         setBidsData(response.data);
@@ -32,10 +28,17 @@ function Bids({ showBidsModal, setShowBidsModal, selectedProduct }) {
   // Creating Table
   const columns = [
     {
-      title: "Name",
+      title: "Product",
+      dataIndex: "product",
+      render: (text, record) => {
+        return record.product.name;
+      },
+    },
+    {
+      title: " Seller Name",
       dataIndex: "name",
       render: (text, record) => {
-        return record.buyer.name;
+        return record.seller.name;
       },
     },
     {
@@ -75,29 +78,13 @@ function Bids({ showBidsModal, setShowBidsModal, selectedProduct }) {
 
   useEffect(() => {
     getData();
-  }, [selectedProduct]);
+  }, []);
 
   return (
-    <Modal
-      title="Bids"
-      visible={showBidsModal}
-      onCancel={handleCancel}
-      centered
-      width={1200}
-      footer={null}
-    >
-      {/* content of the modal */}
-      <Divider />
-      <div className="flex flex-col gap-3">
-        <h2 className="text-xl text-gray-500">
-          {" "}
-          {/* Corrected className */}
-          Product Name: {selectedProduct.name}
-        </h2>
-        <Table columns={columns} dataSource={bidsData} />
-      </div>
-    </Modal>
+    <div className="flex flex-col gap-3">
+      <Table columns={columns} dataSource={bidsData} />
+    </div>
   );
 }
 
-export default Bids;
+export default UserBids;
