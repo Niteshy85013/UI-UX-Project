@@ -27,7 +27,7 @@ function Header() {
           </div>
 
           {/* MOBILE NAV ICON */}
-          <div className="md:hidden block absolute top-4 right-8 fixed">
+          <div className="md:hidden block absolute top-4 right-8 ">
             <button
               aria-label="navigation"
               type="button"
@@ -50,6 +50,7 @@ function Header() {
                   Home
                 </a>
               </div>
+
               <div className="text-lg pr-8">
                 <a
                   href="/bestSelling"

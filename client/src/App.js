@@ -6,14 +6,13 @@ import "./App.css";
 import Signup from "./components/Auth/Signup";
 import Login from "./components/Auth/Login";
 import Home from "./components/Home/Home";
-
+import BestSelling from "./Best Selling";
 import ProtectedPage from "./MainComponents/Protectedpage";
 import ProductInfo from "./components/Home/ProductInfo";
 import Header from "./components/Partials/Header";
 import Admin from "./components/Admin";
 import AdminDashboard from "./components/Admin/adminDashboard";
 import Profile from "./components/Profile";
-import BestSelling from "./components/BestSelling/bestSelling";
 
 function App() {
   return (

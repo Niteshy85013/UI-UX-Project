@@ -24,47 +24,45 @@ const categories = [
   },
 ];
 
-function Filters({ showFilters, setShowFilters, filters, setFilters }) {
-  return (
-    <>
-      <div className="container ">
-        <div className="w-full flex flex-col">
-          <div className="flex justify-around text-xl"></div>
+function Filters({ filters, setFilters }) {
+  const handleCheckboxChange = (categoryValue, checked) => {
+    if (checked) {
+      setFilters((prevFilters) => ({
+        ...prevFilters,
+        category: [...prevFilters.category, categoryValue],
+      }));
+    } else {
+      setFilters((prevFilters) => ({
+        ...prevFilters,
+        category: prevFilters.category.filter((item) => item !== categoryValue),
+      }));
+    }
+  };
 
-          <div className="flex flex-row gap-1 mt-5">
-            <h3 className="text-gray-600">Categories</h3>
-            <div className="flex flex-row gap-5 ms-5">
-              {categories.map((category) => (
-                <div className="flex items-center gap-2" key={category.value}>
-                  <Input
-                    type="checkbox"
-                    name="category"
-                    className="max-width"
-                    checked={filters.category.includes(category.value)}
-                    onChange={(e) => {
-                      if (e.target.checked) {
-                        setFilters({
-                          ...filters,
-                          category: [...filters.category, category.value],
-                        });
-                      } else {
-                        setFilters({
-                          ...filters,
-                          category: filters.category.filter(
-                            (item) => item !== category.value
-                          ),
-                        });
-                      }
-                    }}
-                  />
-                  <label htmlFor={category.value}>{category.name}</label>
-                </div>
-              ))}
-            </div>
+  return (
+    <div className="container-fluid   bg-white shadow-md">
+      <div className="w-full flex flex-col">
+        <div className="flex flex-row gap-1 mt-2">
+          <h3 className="text-gray-600">Categories</h3>
+          <div className="flex flex-row gap-5 mx-5">
+            {categories.map((category) => (
+              <div className="flex items-center gap-2" key={category.value}>
+                <Input
+                  type="checkbox"
+                  name="category"
+                  className="max-width"
+                  checked={filters.category.includes(category.value)}
+                  onChange={(e) =>
+                    handleCheckboxChange(category.value, e.target.checked)
+                  }
+                />
+                <label htmlFor={category.value}>{category.name}</label>
+              </div>
+            ))}
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
