@@ -9,22 +9,31 @@ import Home from "./components/Home/Home";
 import BestSelling from "./Best Selling";
 import ProtectedPage from "./MainComponents/Protectedpage";
 import ProductInfo from "./components/Home/ProductInfo";
-import Header from "./components/Partials/Header";
+
 import Admin from "./components/Admin";
 import AdminDashboard from "./components/Admin/adminDashboard";
 import Profile from "./components/Profile";
+
+import HomeSec from "./components/SecHome/HomeSec";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Header />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/bestSelling" element={<BestSelling />} />
           <Route path="/product/:id" element={<ProductInfo />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Signup />} />
+          <Route
+            path="/home"
+            element={
+              <ProtectedPage>
+                <HomeSec />
+              </ProtectedPage>
+            }
+          />
           <Route
             path="/profile"
             element={

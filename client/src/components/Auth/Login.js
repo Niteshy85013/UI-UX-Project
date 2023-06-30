@@ -26,7 +26,7 @@ function Login() {
       if (response.success) {
         message.success(response.message);
         localStorage.setItem("token", response.data);
-        navigate("/");
+        navigate("/home");
       } else {
         throw new Error(response.message);
       }
@@ -36,11 +36,11 @@ function Login() {
     }
   };
 
-  // useEffect(() => {
-  //   if (localStorage.getItem("token")) {
-  //     navigate("/");
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      navigate("/home");
+    }
+  }, []);
 
   return (
     <div className="h-screen bg-dark flex justify-center items-center">

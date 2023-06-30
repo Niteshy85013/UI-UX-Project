@@ -78,13 +78,6 @@ function ProtectedPage({ children }) {
   return (
     <div>
       <div>{children}</div>
-
-      {/* <Notifications
-        notifications={notifications}
-        reloadNotifications={setNotifications}
-        showNotifications={showNotifications}
-        setShowNotifications={setShowNotifications}
-      /> */}
     </div>
   );
 }
