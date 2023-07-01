@@ -12,7 +12,7 @@ function Header() {
 
   return (
     <>
-      <nav className="p-4 bg-gray-600 text-gray-200 w-full  sticky  top-0 shadow-md">
+      <nav className="p-4 bg-gray-600 text-gray-200 w-full  shadow-md sticky-top">
         <div className="flex justify-between items-center">
           <div className="flex items-center pl-8">
             <div className=" fst-italic">

@@ -6,7 +6,7 @@ import { GetProducts } from "../../apicalls/products";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Filters from "./Category";
- 
+
 import Banner from "./Banner";
 
 function Product() {
@@ -60,7 +60,7 @@ function Product() {
               setFilters={setFilters}
             />
           )}
-          <div className="flex flex-col gap-5  sticky top-0">
+          <div className="flex flex-col gap-5">
             <div className="flex gap-5 items-center">
               {!showFilters && (
                 <i

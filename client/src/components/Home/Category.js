@@ -1,6 +1,7 @@
 import { Input } from "antd";
 import React from "react";
-
+import "./Banner";
+import "./Home.css";
 const categories = [
   {
     name: "Electronics",
@@ -40,10 +41,10 @@ function Filters({ filters, setFilters }) {
   };
 
   return (
-    <div className="container-fluid   bg-white shadow-md">
+    <div className=" cat  bg-white  rounded ">
       <div className="w-full flex flex-col">
         <div className="flex flex-row gap-1 mt-2">
-          <h3 className="text-gray-600">Categories</h3>
+          <h3 className="text-gray-600 ms-5">Categories</h3>
           <div className="flex flex-row gap-5 mx-5">
             {categories.map((category) => (
               <div className="flex items-center gap-2" key={category.value}>

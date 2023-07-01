@@ -11,7 +11,7 @@ import ProtectedPage from "./MainComponents/Protectedpage";
 import ProductInfo from "./components/Home/ProductInfo";
 
 import Admin from "./components/Admin";
-import AdminDashboard from "./components/Admin/adminDashboard";
+
 import Profile from "./components/Profile";
 
 import HomeSec from "./components/SecHome/HomeSec";
@@ -34,6 +34,7 @@ function App() {
               </ProtectedPage>
             }
           />
+
           <Route
             path="/profile"
             element={
@@ -47,14 +48,6 @@ function App() {
             element={
               <ProtectedPage>
                 <Admin />
-              </ProtectedPage>
-            }
-          />
-          <Route
-            path="/adminDashboard"
-            element={
-              <ProtectedPage>
-                <AdminDashboard />
               </ProtectedPage>
             }
           />

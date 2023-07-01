@@ -27,7 +27,7 @@ function NavSec() {
 
   const handleLogout = () => {
     localStorage.removeItem("token");
-    navigate("/");
+    navigate("/login");
   };
 
   if (!user) {
@@ -39,10 +39,10 @@ function NavSec() {
       <nav className="p-4 bg-gray-600 text-gray-200 w-full sticky top-0 shadow-md">
         <div className="flex justify-between items-center">
           <div className="flex items-center pl-8">
-            <div className="fst-italic">
+            <div className="fst-italic fs-2">
               <a
                 href="/home"
-                className="transition duration-300 text-yellow-500"
+                className=" text-yellow-500"
                 style={{ textDecoration: "none" }}
               >
                 MarketHub
@@ -67,7 +67,7 @@ function NavSec() {
             <ul className="hidden md:flex">
               <div className="text-lg pr-8">
                 <a
-                  href="/"
+                  href="/home"
                   className="transition duration-300 text-gray-200 hover:text-yellow-500"
                   style={{ textDecoration: "none" }}
                 >
@@ -107,10 +107,10 @@ function NavSec() {
             </a>
 
             {/* <!-- Dropdown menu --> */}
-            <div className="relative inline-block text-left">
+            <div className="relative inline-block text-left ">
               <button
                 type="button"
-                className="inline-flex items-center justify-center w-full px-4 py-2 text-sm font-medium text-white bg-blue-700 border border-transparent rounded-md hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                className="inline-flex items-center justify-center w-full px-4 py-2 text-sm font-medium text-white bg-black border border-transparent rounded-md   focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                 onClick={handleDropdownToggle}
               >
                 Profile
@@ -136,7 +136,7 @@ function NavSec() {
                     <div>
                       <button
                         type="button"
-                        className="block w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        className=" w-full text-sm text-black hover:bg-gray-100 mb-2 border border-none bg-white"
                         onClick={handleProfileClick}
                       >
                         Dashboards
@@ -145,7 +145,7 @@ function NavSec() {
                     <div>
                       <button
                         type="button"
-                        className="block w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        className=" w-full py-2 text-sm text-black hover:bg-gray-100 border border-none bg-white"
                         onClick={handleLogout}
                       >
                         Sign out
@@ -167,7 +167,7 @@ function NavSec() {
         >
           <div className="flex flex-col justify-center items-center w-full">
             <a
-              href="/"
+              href="/home"
               className="text-gray-200 cursor-pointer py-3 transition duration-300 hover:text-yellow-500"
             >
               Home

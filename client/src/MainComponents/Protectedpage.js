@@ -64,17 +64,6 @@ function ProtectedPage({ children }) {
     return null; // Return null or a loading spinner if user data is not available yet
   }
 
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    navigate("/login");
-  };
-
-  const handleProfileClick = () => {
-    if (user.role === "user") {
-      navigate("/profile");
-    }
-  };
-
   return (
     <div>
       <div>{children}</div>

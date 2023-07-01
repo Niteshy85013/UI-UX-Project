@@ -59,13 +59,13 @@ function AdminDashboard() {
               />
               <Divider />
               <div className="px-3 flex flex-col gap-1">
-                <h2 className="font-semibold pb-2">{product.name}</h2>
-                <h4 className="font-normal pb-1">
+                <h2 className="font-semibold pb-2 flex">{product.name}</h2>
+                <h5 className="font-normal pb-1 flex">
                   Condition: {product.condition}
-                </h4>
-                <h3 className="text-green-900 font-normal pb-2">
+                </h5>
+                <h4 className="text-green-900 font-normal pb-2 flex">
                   ₹. {product.price}
-                </h3>
+                </h4>
               </div>
             </div>
           ))}

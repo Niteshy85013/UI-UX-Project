@@ -121,9 +121,10 @@ function Products() {
   }, []);
 
   return (
-    <div className="container">
+    <div>
       <div className="flex justify-end mb-2">
         <Button
+          className="bg-black text-white"
           type="default"
           onClick={() => {
             setSelectedProduct(null);
