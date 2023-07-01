@@ -6,7 +6,7 @@ import { GetProducts } from "../../apicalls/products";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Filters from "./Category";
-import Divider from "../../MainComponents/Divider";
+ 
 import Banner from "./Banner";
 
 function Product() {

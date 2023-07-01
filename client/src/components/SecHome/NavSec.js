@@ -27,7 +27,7 @@ function NavSec() {
 
   const handleLogout = () => {
     localStorage.removeItem("token");
-    navigate("/login");
+    navigate("/");
   };
 
   if (!user) {
