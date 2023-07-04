@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import "./header.css";
-import { useSelector } from "react-redux";
 
 function Header() {
-  const { user } = useSelector((state) => state.users);
   const [mobileMenuVisible, setMobileMenuVisible] = useState(false);
 
   const toggleMobileMenu = () => {
@@ -12,7 +10,7 @@ function Header() {
 
   return (
     <>
-      <nav className="p-4 bg-gray-600 text-gray-200 w-full  shadow-md sticky-top">
+      <nav className="p-2 bg-gray-600 text-gray-200 w-full  shadow-md sticky-top">
         <div className="flex justify-between items-center">
           <div className="flex items-center pl-8">
             <div className=" fst-italic">

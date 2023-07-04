@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { SetLoader } from "../../redux/loaderSlice";
 import Divider from "../../MainComponents/Divider";
-import { message } from "antd";
+import { Button, message } from "antd";
 import { GetAllBids, GetProductById } from "../../apicalls/products";
 import { useParams } from "react-router-dom";
 import moment from "moment";
 import BidModal from "./BidModal";
 
 function ProductInfo() {
+  const { user } = useSelector((state) => state.users);
   const [showAddNewBid, setShowAddNewBid] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [product, setProduct] = useState(null);
@@ -45,9 +46,9 @@ function ProductInfo() {
     setSelectedImageIndex(index);
   };
 
-  // const handleToggleBidModal = () => {
-  //   setShowAddNewBid((prevShowAddNewBid) => !prevShowAddNewBid);
-  // };
+  const handleToggleBidModal = () => {
+    setShowAddNewBid((prevShowAddNewBid) => !prevShowAddNewBid);
+  };
 
   if (!product) {
     // Render a loading spinner or placeholder while the product data is being fetched
@@ -83,7 +84,9 @@ function ProductInfo() {
 
           {/* Seller Details */}
           <div className="container border border-dark rounded mb-5">
-            <h3 className=" flex font-bold text-red-500 mt-1">Seller Details</h3>
+            <h3 className=" flex font-bold text-red-500 mt-1">
+              Seller Details
+            </h3>
             <div className="flex justify-between mt-2">
               <span>Full Name</span>
               <span className="uppercase">{product.seller.name}</span>
@@ -147,25 +150,25 @@ function ProductInfo() {
               <span>{product.negotiable ? "Yes" : "No"}</span>
             </div>
             {/* Product Add time section */}
-          <div className="flex justify-between mt-2">
-            <span> Added On</span>
-            <span className="text-gray-600">
-              {moment(product.createdAt).format("MMM D, YYYY ")}
-            </span>
-          </div>
+            <div className="flex justify-between mt-2">
+              <span> Added On</span>
+              <span className="text-gray-600">
+                {moment(product.createdAt).format("MMM D, YYYY ")}
+              </span>
+            </div>
           </div>
           <Divider />
 
-           
           <div className="flex flex-col mt-3 mb-2">
             <div className="flex justify-between">
               <h1 className="text-2xl font-semibold text-orange-900">Bids</h1>
-              {/* <Button
-                onClick={handleToggleBidModal}
-                disabled={user._id === product.seller._id}
-              >
-                Bid Now
-              </Button> */}
+              <Button onClick={handleToggleBidModal}>Contact</Button>
+            </div>
+          </div>
+
+          <div className="flex flex-col mt-3 mb-2">
+            <div className="container rounded shadow-md border border-dark">
+              <h5 className="text-danger flex">Place Bid for this Product.</h5>
             </div>
           </div>
         </div>

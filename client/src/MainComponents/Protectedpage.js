@@ -3,7 +3,7 @@ import { message } from "antd";
 import { useNavigate } from "react-router-dom";
 import { GetCurrentUser } from "../apicalls/users";
 import { useDispatch, useSelector } from "react-redux";
-import { SetLoader } from "../redux/loaderSlice";
+
 import { SetUser } from "../redux/userSlice";
 
 // import Notifications from "./Notifications";
@@ -18,9 +18,8 @@ function ProtectedPage({ children }) {
 
   const validateToken = async () => {
     try {
-      dispatch(SetLoader(true));
       const response = await GetCurrentUser();
-      dispatch(SetLoader(false));
+
       if (response.success) {
         dispatch(SetUser(response.data));
       } else {
@@ -28,7 +27,6 @@ function ProtectedPage({ children }) {
         message.error(response.message);
       }
     } catch (error) {
-      dispatch(SetLoader(false));
       navigate("/login");
       message.error(error.message);
     }
@@ -59,10 +57,6 @@ function ProtectedPage({ children }) {
       navigate("/login");
     }
   }, []);
-
-  if (!user) {
-    return null; // Return null or a loading spinner if user data is not available yet
-  }
 
   return (
     <div>
