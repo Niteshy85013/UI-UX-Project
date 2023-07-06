@@ -89,7 +89,7 @@ function Product() {
                   <img
                     src={product.images[0]}
                     alt="Product"
-                    style={{ maxHeight: "15rem" }}
+                    style={{ maxHeight: "10rem" }}
                     className="rounded w-full"
                   />
                   <div class="px-4 py-3 w-72">
