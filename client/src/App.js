@@ -15,6 +15,7 @@ import Admin from "./components/Admin";
 import Profile from "./components/Profile";
 
 import HomeSec from "./components/SecHome/HomeSec";
+import SingleWishProduct from "./components/wishlist/SingleWishProduct";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/product/:id" element={<ProductInfo />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Signup />} />
+          <Route path="/wishlist" element={<SingleWishProduct />} />
           <Route
             path="/home"
             element={

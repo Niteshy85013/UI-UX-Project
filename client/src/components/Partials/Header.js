@@ -51,6 +51,16 @@ function Header() {
 
               <div className="text-lg pr-8">
                 <a
+                  href="/wishlist"
+                  className="transition duration-300 text-gray-200 hover:text-yellow-500"
+                  style={{ textDecoration: "none" }}
+                >
+                  Wishlist
+                </a>
+              </div>
+
+              <div className="text-lg pr-8">
+                <a
                   href="/bestSelling"
                   className="transition duration-300 ms-5  text-gray-200   hover:text-yellow-500"
                   style={{ textDecoration: "none" }}
@@ -108,6 +118,15 @@ function Header() {
             >
               Home
             </a>
+
+            <a
+              href="/wishlist"
+              className="transition duration-300 text-gray-200 hover:text-yellow-500"
+              style={{ textDecoration: "none" }}
+            >
+              Wishlist
+            </a>
+
             <a
               href="/bestSelling"
               className=" text-gray-200 cursor-pointer mt-1 py-3 transition duration-300    hover:text-yellow-500"

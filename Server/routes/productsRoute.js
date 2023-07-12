@@ -194,4 +194,23 @@ router.put("/update-product-status/:id", authMiddleware, async (req, res) => {
   }
 });
 
+// Wishlist work
+router.post("/wish-product", async (req, res) => {
+  try {
+    const { productArray } = req.body;
+    if (!productArray) {
+      return res.json({ error: "All fields must be required" });
+    } else {
+      const wishProducts = await Product.find({ _id: { $in: productArray } });
+      if (wishProducts.length > 0) {
+        return res.json({ Products: wishProducts });
+      }
+    }
+    return res.json({ error: "No products found" });
+  } catch (err) {
+    console.log(err);
+    return res.json({ error: "Filtering products failed" });
+  }
+});
+
 module.exports = router;
