@@ -83,7 +83,8 @@ function Product() {
                       src={product.images[0]}
                       alt="Product"
                       style={{ maxHeight: "8rem" }}
-                      className="rounded w-full"
+                      className="rounded w-full cursor-pointer"
+                      onClick={() => navigate(`/product/${product._id}`)}
                     />
 
                     <div className="label-top shadow-sm">
@@ -127,7 +128,7 @@ function Product() {
                       <h5 className="flex">{product.name}</h5>
 
                       <div className="clearfix mb-3">
-                        <span className="float-start badge rounded-pill bg-dark text-white">
+                        <span className="float-start badge rounded-pill bg-dark text-white ">
                           {product.condition}
                         </span>
                       </div>

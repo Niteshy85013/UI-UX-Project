@@ -23,6 +23,14 @@ const categories = [
     name: "Furnishing",
     value: "furnishing",
   },
+  {
+    name: "Books",
+    value: "books",
+  },
+  {
+    name: "Sports",
+    value: "sports",
+  },
 ];
 
 function Filters({ filters, setFilters }) {
