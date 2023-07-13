@@ -22,7 +22,7 @@ function Login() {
       if (response.success) {
         message.success(response.message);
         localStorage.setItem("token", response.data);
-        navigate("/home");
+        navigate("/");
       } else {
         throw new Error(response.message);
       }
@@ -33,7 +33,7 @@ function Login() {
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
-      navigate("/home");
+      navigate("/");
     }
   }, []);
 

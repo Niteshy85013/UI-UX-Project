@@ -51,9 +51,9 @@ function ProductInfo() {
     setSelectedImageIndex(index);
   };
 
-  const handleToggleBidModal = () => {
-    setShowAddNewBid((prevShowAddNewBid) => !prevShowAddNewBid);
-  };
+  // const handleToggleBidModal = () => {
+  //   setShowAddNewBid((prevShowAddNewBid) => !prevShowAddNewBid);
+  // };
 
   if (!product) {
     // Render a loading spinner or placeholder while the product data is being fetched
@@ -198,11 +198,15 @@ function ProductInfo() {
             </div>
           </div>
           <Divider />
-
+          {/* Bid Section */}
           <div className="flex flex-col mt-3 mb-2">
             <div className="flex justify-between">
-              <h1 className="text-2xl font-semibold text-orange-900">Bids</h1>
-              <Button onClick={handleToggleBidModal}>Contact</Button>
+              <h1 className="text-2xl font-semibold text-orange-900">
+                Message
+              </h1>
+              <Button onClick={() => setShowAddNewBid(!showAddNewBid)}>
+                Contact
+              </Button>
             </div>
           </div>
 
@@ -212,8 +216,6 @@ function ProductInfo() {
             </div>
           </div>
         </div>
-
-        {/* Bid Section */}
       </div>
 
       {showAddNewBid && (

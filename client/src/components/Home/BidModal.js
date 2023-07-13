@@ -9,7 +9,7 @@ import { PlaceNewBid } from "../../apicalls/products";
 function BidModal({ showBidModal, setShowBidModal, product, reloadData }) {
   const { user } = useSelector((state) => state.users);
   const dispatch = useDispatch();
-  const formRef = useRef(null);
+  const formRef = React.useRef(null);
   const rules = [{ required: true, message: "Required" }];
 
   const onFinish = async (values) => {
@@ -64,7 +64,7 @@ function BidModal({ showBidModal, setShowBidModal, product, reloadData }) {
     >
       <div className="flex flex-col gap-5 mb-5">
         <h1 className="text-2xl font-semibold text-orange-900 text-center">
-          Bid Now
+          Message Now
         </h1>
         <Form layout="vertical" ref={formRef} onFinish={onFinish}>
           <Form.Item label="Bid Amount" name="bidAmount" rules={rules}>

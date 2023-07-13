@@ -7,7 +7,7 @@ export const AddProduct = async (payload) => {
       "/api/products/add-product",
       payload
     );
-    return response.data;
+    return response.data; 
   } catch (error) {
     return error.message;
   }

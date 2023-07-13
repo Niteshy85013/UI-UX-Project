@@ -1,21 +1,13 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Tabs } from "antd";
 import Products from "./Products";
 import Users from "./Users";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import AdminDashboard from "./adminDashboard";
-import Advertisement from "./Advertisement";
 
 function Admin() {
   const navigate = useNavigate();
   const { user } = useSelector((state) => state.users);
-
-  useEffect(() => {
-    if (user.role !== "admin") {
-      navigate("/adminDashboard");
-    }
-  }, []);
 
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -45,17 +37,11 @@ function Admin() {
 
       <div className="container mt-5">
         <Tabs>
-          <Tabs.TabPane tab="Products" key="1">
-            <AdminDashboard />
-          </Tabs.TabPane>
-          <Tabs.TabPane tab="Products Request" key="2">
+          <Tabs.TabPane tab="Products Request" key="1">
             <Products />
           </Tabs.TabPane>
-          <Tabs.TabPane tab="Users" key="3">
+          <Tabs.TabPane tab="Users" key="2">
             <Users />
-          </Tabs.TabPane>
-          <Tabs.TabPane tab="Advertisement" key="4">
-            <Advertisement />
           </Tabs.TabPane>
         </Tabs>
       </div>

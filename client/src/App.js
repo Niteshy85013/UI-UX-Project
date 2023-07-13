@@ -13,8 +13,6 @@ import ProductInfo from "./components/Home/ProductInfo";
 import Admin from "./components/Admin";
 
 import Profile from "./components/Profile";
-
-import HomeSec from "./components/SecHome/HomeSec";
 import SingleWishProduct from "./components/wishlist/SingleWishProduct";
 
 function App() {
@@ -22,17 +20,16 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
           <Route path="/bestSelling" element={<BestSelling />} />
           <Route path="/product/:id" element={<ProductInfo />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Signup />} />
           <Route path="/wishlist" element={<SingleWishProduct />} />
           <Route
-            path="/home"
+            path="/"
             element={
               <ProtectedPage>
-                <HomeSec />
+                <Home />
               </ProtectedPage>
             }
           />
@@ -45,14 +42,7 @@ function App() {
               </ProtectedPage>
             }
           />
-          <Route
-            path="/admin"
-            element={
-              <ProtectedPage>
-                <Admin />
-              </ProtectedPage>
-            }
-          />
+          <Route path="/admin" element={<Admin />} />
         </Routes>
       </BrowserRouter>
     </div>

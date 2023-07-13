@@ -12,8 +12,6 @@ const bidSchema = new mongoose.Schema(
       ref: "Users",
       required: true,
     },
-    
-
     bidAmount: {
       type: Number,
       required: true,
@@ -35,4 +33,4 @@ const bidSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Bids", bidSchema);
+module.exports = mongoose.model("bids", bidSchema);
