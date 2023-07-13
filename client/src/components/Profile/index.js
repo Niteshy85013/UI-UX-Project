@@ -10,8 +10,10 @@ import ProfileInfo from "./ProfileInfo";
 function Profile() {
   return (
     <>
-      <NavSec />
-      <div className="container  mt-5">
+      <div className="container overflow-hidden ">
+        <div className="container rounded bg-blue-300 mt-5">
+          <h1 className="font-bold"> Profile Page</h1>
+        </div>
         <Tabs defaultActiveKey="1">
           <Tabs.TabPane tab="Products" key="1">
             <Products />
