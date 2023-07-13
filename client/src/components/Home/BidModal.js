@@ -4,6 +4,7 @@ import { Modal, Form, Input, message } from "antd";
 
 import { SetLoader } from "../../redux/loaderSlice";
 import { PlaceNewBid } from "../../apicalls/products";
+import { AddNotification } from "../../apicalls/notifications";
 // import { AddNotification } from "../../apicalls/notifications";
 
 function BidModal({ showBidModal, setShowBidModal, product, reloadData }) {
@@ -25,15 +26,15 @@ function BidModal({ showBidModal, setShowBidModal, product, reloadData }) {
 
       if (response.success) {
         message.success("Bid added successfully");
-
         // Send Notification to seller
-        // await AddNotification({
-        //   title: "A new bid has been placed",
-        //   message: `A new bid has been placed on your product ${product.name} by ${user.name} for ${values.bidAmount}`,
-        //   user: product.seller._id,
-        //   onClick: "/profile",
-        //   read: false,
-        // });
+        await AddNotification({
+          title: "Hey, new bid has been placed",
+          message: `Hey, new bid has been placed on your product ${product.name} by ${user.name} for ${values.bidAmount}`,
+          user: product.seller._id,
+          onClick: "/profile",
+          // this line would be reason
+          read: false,
+        });
 
         reloadData();
         setShowBidModal(false);

@@ -10,11 +10,10 @@ const notificationSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    onCancle: {
+    onClick: {
       type: String,
       required: true,
     },
-
     user: {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
@@ -30,5 +29,5 @@ const notificationSchema = new mongoose.Schema(
   }
 );
 
-const Notification = mongoose.model("Notifications", notificationSchema);
+const Notification = mongoose.model("notifications", notificationSchema);
 module.exports = Notification;
