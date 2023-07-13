@@ -109,7 +109,7 @@ function ProductInfo() {
 
         {/* All product Details */}
         <div className="col-md-6">
-          <div>
+          <div className="flex justify-between mt-2">
             <h1 className="flex text-2xl font-semibold text-orange-900 pb-3">
               {product.name}
             </h1>
@@ -148,8 +148,8 @@ function ProductInfo() {
                 />
               </svg>
             </span>
-            <span className="flex">{product.description}</span>
           </div>
+          <span className="flex">{product.description}</span>
           <Divider />
           <div className="flex flex-col">
             <h1 className="flex text-2xl font-semibold text-orange-900 pb-1">

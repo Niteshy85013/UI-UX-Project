@@ -90,7 +90,10 @@ function SingleWishProduct() {
             );
           })
         ) : (
-          <div>No product found in wishList</div>
+          <div className="mt-3">
+            <img src="./images/wish.png" alt="" style={{ height: "20rem" }} />
+            <h1>No product found in wishList</h1>
+          </div>
         )}
       </div>
     </Fragment>

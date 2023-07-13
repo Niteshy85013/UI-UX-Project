@@ -82,7 +82,7 @@ function Product() {
                     <img
                       src={product.images[0]}
                       alt="Product"
-                      style={{ maxHeight: "8rem" }}
+                      style={{ maxHeight: "7rem" }}
                       className="rounded w-full cursor-pointer"
                       onClick={() => navigate(`/product/${product._id}`)}
                     />
