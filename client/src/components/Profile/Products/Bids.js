@@ -32,6 +32,13 @@ function Bids({ showBidsModal, setShowBidsModal, selectedProduct }) {
   // Creating Table
   const columns = [
     {
+      title: "Bids Placed Date",
+      dataIndex: "createdAt",
+      render: (text, record) => {
+        return moment(text).format("DD-MM-YYY hh:mm a");
+      },
+    },
+    {
       title: "Name",
       dataIndex: "name",
       render: (text, record) => {

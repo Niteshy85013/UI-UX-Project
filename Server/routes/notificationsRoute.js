@@ -57,15 +57,26 @@ router.delete("/delete-notification/:id", authMiddleware, async (req, res) => {
 // Read all notifications by user
 router.put("/read-all-notifications", authMiddleware, async (req, res) => {
   try {
+    const { userId } = req.body;
+    if (!userId) {
+      throw new Error("Missing userId in request body");
+    }
+
     await Notification.updateMany(
-      { user: res.body.userId, read: false },
+      { user: userId, read: false },
       { $set: { read: true } }
     );
+
+    res.send({
+      success: true,
+      message: "All Notifications marked as read",
+    });
   } catch (error) {
     res.send({
-      sucess: false,
+      success: false,
       message: error.message,
     });
   }
 });
+
 module.exports = router;

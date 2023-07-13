@@ -3,7 +3,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Avatar, Badge, message } from "antd";
 import Notifications from "../../MainComponents/Notifications";
-import { GetAllNotifications } from "../../apicalls/notifications";
+import {
+  GetAllNotifications,
+  ReadAllNotifications,
+} from "../../apicalls/notifications";
 import { SetLoader } from "../../redux/loaderSlice";
 
 import "./header.css";
@@ -24,11 +27,25 @@ function NavSec() {
 
   const getNotifications = async () => {
     try {
-      dispatch(SetLoader(true));
       const response = await GetAllNotifications();
-      dispatch(SetLoader(false));
+
       if (response.success) {
         setNotifications(response.data);
+      } else {
+        throw new Error(response.message);
+      }
+    } catch (error) {
+      message.error(error.message);
+    }
+  };
+
+  const readNotifications = async () => {
+    try {
+      dispatch(SetLoader(true));
+      const response = await ReadAllNotifications();
+      dispatch(SetLoader(false));
+      if (response.success) {
+        getNotifications();
       } else {
         throw new Error(response.message);
       }
@@ -121,7 +138,10 @@ function NavSec() {
             count={
               notifications.filter((notification) => !notification.read).length
             }
-            onClick={() => setShowNotifications(true)}
+            onClick={() => {
+              readNotifications();
+              setShowNotifications(true);
+            }}
             className="cursor-pointer"
           >
             <Avatar
@@ -216,7 +236,7 @@ function NavSec() {
 
       <Notifications
         notifications={notifications}
-        reloadNotifications={setNotifications}
+        reloadNotifications={getNotifications}
         showNotifications={showNotifications}
         setShowNotifications={setShowNotifications}
       />

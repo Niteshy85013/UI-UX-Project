@@ -111,6 +111,16 @@ function Products() {
                 deleteProduct(record._id);
               }}
             ></i>
+
+            <div
+              className="underline cursor-pointer"
+              onClick={() => {
+                setSelectedProduct(record);
+                setShowBids(true);
+              }}
+            >
+              Show Bids
+            </div>
           </div>
         );
       },
