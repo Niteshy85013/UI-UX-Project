@@ -104,22 +104,12 @@ function NavSec() {
         </div>
 
         {/* NAVIGATION - LARGE SCREENS */}
-        <div className="md:flex">
+        <div className="md:flex p-2">
           <ul className="hidden md:flex">
-            <div className="text-lg ">
-              <a
-                href="/home"
-                className="transition duration-300 text-gray-200 hover:text-yellow-500"
-                style={{ textDecoration: "none" }}
-              >
-                Home
-              </a>
-            </div>
-
-            <div className="text-lg ">
+            <div className="text-lg mt-2">
               <a
                 href="/wishlist"
-                className="transition duration-300 ms-5 text-gray-200 hover:text-yellow-500"
+                className="transition duration-300  text-gray-200 hover:text-yellow-500"
                 style={{ textDecoration: "none" }}
               >
                 Wishlist
@@ -128,7 +118,7 @@ function NavSec() {
           </ul>
           <button
             type="button"
-            className="text-white fs-5 bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+            className="text-white fs-5 ms-2 bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
             onClick={handleProfileClick}
           >
             Sell Product
@@ -155,7 +145,7 @@ function NavSec() {
           <div className="relative inline-block text-left ">
             <button
               type="button"
-              className="inline-flex items-center justify-center w-full px-4 py-2 text-sm font-medium text-white bg-black border border-transparent rounded-md   focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              className="inline-flex ms-2 items-center justify-center w-full px-4 py-2 text-sm font-medium text-white bg-black border border-transparent rounded-md   focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
               onClick={handleDropdownToggle}
             >
               Profile

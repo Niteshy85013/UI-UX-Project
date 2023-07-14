@@ -2,9 +2,6 @@ import React from "react";
 import { Tabs } from "antd";
 import Products from "./Products";
 
-import UserBids from "./UserBids";
-
-import NavSec from "../Partials/Header";
 import ProfileInfo from "./ProfileInfo";
 
 function Profile() {
@@ -19,9 +16,6 @@ function Profile() {
             <Products />
           </Tabs.TabPane>
 
-          <Tabs.TabPane tab="My Bids" key="2">
-            <UserBids />
-          </Tabs.TabPane>
           <Tabs.TabPane tab="Profile" key="3">
             <ProfileInfo />
           </Tabs.TabPane>

@@ -46,6 +46,7 @@ function Product() {
 
   return (
     <>
+    
       <section className="product ">
         <div className="gap-5">
           {showFilters && (
@@ -132,7 +133,7 @@ function Product() {
                           {product.condition}
                         </span>
                       </div>
-                      <h5 className="flex">₹. {product.price}</h5>
+                      <h5 className="flex">NRP. {product.price}</h5>
                     </div>
                   </div>
                 </div>
