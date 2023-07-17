@@ -20,16 +20,19 @@ function Products() {
   const getData = async () => {
     try {
       dispatch(SetLoader(true));
-      const response = await GetProducts({ seller: user._id }); // Wrap the object inside curly braces
+      const response = await GetProducts({ seller: user._id });
       dispatch(SetLoader(false));
       if (response.success) {
         setProducts(response.data);
       }
     } catch (error) {
       dispatch(SetLoader(false));
-      message.error(error.message);
     }
   };
+
+  useEffect(() => {
+    getData();
+  }, [getData]);
   // Fetching Section Ends........................
 
   // Delete operation....................
@@ -116,9 +119,6 @@ function Products() {
       },
     },
   ];
-  useEffect(() => {
-    getData();
-  }, []);
 
   return (
     <div>

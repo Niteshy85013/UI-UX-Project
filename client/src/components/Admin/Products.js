@@ -4,24 +4,23 @@ import { useDispatch } from "react-redux";
 import { GetProducts, UpdateProductStatus } from "../../apicalls/products";
 import { SetLoader } from "../../redux/loaderSlice";
 import moment from "moment";
-
+ 
 function Products() {
   const [products, setProducts] = React.useState([]);
-
+ 
   const dispatch = useDispatch();
 
   // Fetching Data............................
   const getData = async () => {
     try {
       dispatch(SetLoader(true));
-      const response = await GetProducts(null); // Remove the 'null' parameter
+      const response = await GetProducts(); // Remove the 'null' parameter
       dispatch(SetLoader(false));
       if (response.success) {
         setProducts(response.data);
       }
     } catch (error) {
       dispatch(SetLoader(false));
-      message.error(error.message);
     }
   };
   // Fetching Section Ends........................
@@ -159,7 +158,7 @@ function Products() {
   ];
   useEffect(() => {
     getData();
-  }, []);
+  }, [getData]);
 
   return (
     <div>

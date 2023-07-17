@@ -1,17 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { message } from "antd";
 import { useNavigate } from "react-router-dom";
 import { GetCurrentUser } from "../apicalls/users";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import { SetUser } from "../redux/userSlice";
 
-// import Notifications from "./Notifications";
-// import { GetAllNotifications } from "../apicalls/notifications";
-
 function ProtectedPage({ children }) {
-
-  const { user } = useSelector((state) => state.users);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -31,14 +26,12 @@ function ProtectedPage({ children }) {
     }
   };
 
-
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
       validateToken();
-     
     } else {
-      navigate("/login");
+      navigate("/login", { replace: true });
     }
   }, []);
 
