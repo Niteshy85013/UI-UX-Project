@@ -39,6 +39,7 @@ function SingleWishProduct() {
   return (
     <Fragment>
       <div className="container">
+        <h1>Wishlist</h1>
         <div className="grid grid-cols-2 md:grid-cols-1">
           {products.length > 0 ? (
             products.map((product, index) => {
